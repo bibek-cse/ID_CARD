@@ -1,7 +1,3 @@
----
-CVPR Lab ID Card Generator
----
-
 # CVPR Lab (IIT Patna) — ID Card Generator
 
 Generates the lab's identity card from a **photo, name, roll number, program and signature**.
