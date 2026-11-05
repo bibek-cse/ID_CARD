@@ -1,11 +1,5 @@
 ---
-title: CVPR Lab ID Card Generator
-emoji: 🪪
-colorFrom: red
-colorTo: gray
-sdk: gradio
-app_file: app.py
-pinned: false
+CVPR Lab ID Card Generator
 ---
 
 # CVPR Lab (IIT Patna) — ID Card Generator
