@@ -1,0 +1,3 @@
+photo,signature,name,roll,program,valid_till,id_number
+test/photo.jpg,test/signature.png,Akash Rathor,2601CS45,B.Tech,31-12-2026,IITP-CVPR-1645
+test/photo_blue.jpg,test/sig_black.jpg,Venkata Subramaniam Krishnamurthy,2421CS07,Ph.D. (CSE),,
