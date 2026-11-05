@@ -5,7 +5,7 @@
  *   - assigns each roll number a unique ID number (kept if they submit again)
  *   - saves photo, signature and finished card in Google Drive
  *   - logs every member in a Google Sheet (with links to the files)
- *   - optionally emails the card to the member
+ *   - stores the member's email in the Sheet (no email is sent)
  *
  * Setup: see apps_script/SETUP.md  (run setup() once, then Deploy -> Web app).
  *
@@ -14,7 +14,6 @@
  *   ID_PREFIX     default 'IITP-CVPR-'
  *   NEXT_ID       next number to hand out, default 1001 (increments automatically)
  *   VALID_TILL    e.g. 31-12-2026  -> forced on every card ('' = member chooses)
- *   SEND_EMAIL    'true' (default) / 'false'
  *   OPEN          'true' (default) / 'false'  -> close registration
  */
 
@@ -60,7 +59,7 @@ function setup() {
     a.getRange('A2').setNote('Leave this sheet empty to let anyone register. Add roll numbers here to allow ONLY those. ' +
                              'Fill column B to pre-assign a specific ID number to a roll.');
   }
-  const defaults = { ID_PREFIX: 'IITP-CVPR-', NEXT_ID: '1001', SEND_EMAIL: 'true', OPEN: 'true' };
+  const defaults = { ID_PREFIX: 'IITP-CVPR-', NEXT_ID: '1001', OPEN: 'true' };
   Object.keys(defaults).forEach(k => { if (p.getProperty(k) === null) p.setProperty(k, defaults[k]); });
   console.log('Drive folder : ' + root.getUrl());
   console.log('Members sheet: ' + ss.getUrl());
@@ -150,7 +149,7 @@ function saveCard_(r) {
   const roll = String(r.roll || '').replace(/[^A-Za-z0-9]/g, '').toUpperCase();
   const card = dataUrl_(r.card, MAX_CARD, 'card', ['png', 'jpeg']);
   const lock = LockService.getScriptLock(); lock.waitLock(30000);
-  let email = '', idNumber = '', name = '', file;
+  let file;
   try {
     const sh = SpreadsheetApp.openById(p.getProperty('SHEET_ID')).getSheetByName(MEMBERS);
     const row = findRow_(sh, roll);
@@ -161,24 +160,10 @@ function saveCard_(r) {
     sh.getRange(row, COL['Status']).setValue('card saved');
     sh.getRange(row, COL['Token']).setValue('');                    // one upload per registration
     sh.getRange(row, COL['Updated']).setValue(new Date());
-    email = sh.getRange(row, COL['Email']).getValue();
-    idNumber = sh.getRange(row, COL['ID number']).getValue();
-    name = sh.getRange(row, COL['Name']).getValue();
   } finally { lock.releaseLock(); }
 
-  let emailed = false;
-  if (email && (p.getProperty('SEND_EMAIL') || 'true') !== 'false' && MailApp.getRemainingDailyQuota() > 0) {
-    try {
-      MailApp.sendEmail({
-        to: email, subject: 'Your CVPR Lab ID card (' + idNumber + ')',
-        body: 'Hello ' + name + ',\n\nYour CVPR Lab (IIT Patna) ID card is attached.\nID number: ' + idNumber +
-              '\n\nIf any detail is wrong, submit the form again; your ID number stays the same.\n\nCVPR Lab, IIT Patna',
-        attachments: [file.getBlob()],
-      });
-      emailed = true;
-    } catch (err) { console.warn('email failed: ' + err); }
-  }
-  return { ok: true, emailed: emailed };
+  // email is only stored in the Members sheet (column 'Email'); nothing is sent
+  return { ok: true, emailed: false };
 }
 
 /* --------------------------------------------------------------- helpers */
