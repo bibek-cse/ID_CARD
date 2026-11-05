@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CVPR Lab · IIT Patna — ID Card</title>
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <img src="assets/favicon.png" alt="" class="logo">
+  <div>
+    <h1>CVPR Lab ID Card</h1>
+    <p>Computer Vision &amp; Pattern Recognition Lab · IIT Patna</p>
+  </div>
+</header>
+
+<div id="modeBanner" class="banner" hidden></div>
+
+<main class="grid">
+  <form id="form" class="panel" novalidate>
+    <h2>1 · Your details</h2>
+    <label>Full name
+      <input id="name" maxlength="60" autocomplete="name" placeholder="Akash Rathor" required>
+    </label>
+    <div class="row">
+      <label>Roll number
+        <input id="roll" maxlength="14" placeholder="2601CS45" required autocapitalize="characters">
+      </label>
+      <label>Program
+        <select id="program"></select>
+      </label>
+    </div>
+    <label id="programOtherWrap" hidden>Program (type it)
+      <input id="programOther" maxlength="30">
+    </label>
+    <div class="row">
+      <label>Valid till
+        <input id="validTill" placeholder="DD-MM-YYYY" maxlength="10">
+      </label>
+      <label id="idWrap">ID number
+        <input id="idNumber" maxlength="24" placeholder="IITP-CVPR-1645">
+      </label>
+    </div>
+    <label id="emailWrap">Email (a copy of the card is sent here)
+      <input id="email" type="email" maxlength="80" autocomplete="email" placeholder="name@iitp.ac.in">
+    </label>
+    <label id="codeWrap" hidden>Lab access code
+      <input id="code" maxlength="40" autocomplete="off">
+    </label>
+    <p id="codes" class="hint"></p>
+
+    <h2>2 · Photo</h2>
+    <label class="drop" id="photoDrop">
+      <input id="photo" type="file" accept="image/*">
+      <img id="photoThumb" alt="" hidden>
+      <span id="photoHint">Click or drop a front-facing passport photo<br><small>plain light background · at least 900 px tall</small></span>
+    </label>
+
+    <h2>3 · Signature</h2>
+    <div class="tabs">
+      <button type="button" class="tab active" data-tab="upload">Upload</button>
+      <button type="button" class="tab" data-tab="draw">Draw</button>
+    </div>
+    <div class="tabpane" id="pane-upload">
+      <label class="drop small" id="sigDrop">
+        <input id="sigFile" type="file" accept="image/*">
+        <span id="sigHint">Click or drop a photo/scan of your signature<br><small>dark pen on white paper, or a transparent PNG</small></span>
+      </label>
+    </div>
+    <div class="tabpane" id="pane-draw" hidden>
+      <canvas id="pad" width="900" height="300"></canvas>
+      <div class="padbar"><span class="hint">Sign with mouse, finger or stylus</span><button type="button" id="padClear" class="link">Clear</button></div>
+    </div>
+    <div class="sigprev"><span class="hint">Signature as it will appear (transparent):</span><canvas id="sigPreview" width="560" height="160"></canvas></div>
+
+    <button id="submit" type="submit" class="primary">Get my ID card</button>
+    <p id="status" class="status" role="status"></p>
+  </form>
+
+  <section class="panel previewPanel">
+    <h2 id="previewTitle">Preview</h2>
+    <div class="cardWrap"><canvas id="card"></canvas><div id="empty" class="empty">Your card appears here as you fill in the form.</div></div>
+    <div id="downloads" class="downloads" hidden>
+      <button type="button" id="dlPng" class="primary">Download PNG</button>
+      <button type="button" id="dlPdf">Download PDF</button>
+    </div>
+    <p id="driveNote" class="hint"></p>
+  </section>
+</main>
+
+<footer>Your photo, signature and card are stored in the CVPR Lab's Google Drive, used only for the lab ID card.</footer>
+
+<script src="config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="card.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
