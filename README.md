@@ -20,7 +20,7 @@ python app.py --auth lab:yourpassword      # open http://127.0.0.1:7860
 - Remote server or cluster: `ssh -L 7860:localhost:7860 user@server`, then open `http://localhost:7860`
 
 ## 🌐 Website (GitHub Pages + Google Drive): recommended
-**https://bibek-cse.github.io/ID_CARD/** (after setup)
+**https://bibek-cse.github.io/ID_CARD/** 
 
 Members fill in a form, add a photo and signature (upload or draw), and get their card. The lab's Google Apps Script
 **assigns each person an ID number** and saves the **photo, signature and card in Google Drive**, with a row in a Google Sheet.
