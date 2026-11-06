@@ -1,0 +1,357 @@
+{
+  "_comment": "All coordinates are pixels on the ORIGINAL 1057x760 template. Boxes are [x0, y0, x1, y1]. The code scales everything automatically to the size of the base image (e.g. 3x = 3171x2280).",
+  "canvas_size": [
+    1057,
+    760
+  ],
+  "static_text": [
+    {
+      "text": "COMPUTER VISION",
+      "box": [
+        164,
+        73,
+        577,
+        112
+      ],
+      "font": "header",
+      "color": [
+        196,
+        186,
+        192
+      ],
+      "color_bottom": [
+        168,
+        157,
+        166
+      ],
+      "erase": "light"
+    },
+    {
+      "text": "& PATTERN RECOGNITION LAB (CVPR LAB)",
+      "box": [
+        163,
+        129,
+        1012,
+        176
+      ],
+      "font": "header",
+      "color": [
+        196,
+        186,
+        192
+      ],
+      "color_bottom": [
+        168,
+        157,
+        166
+      ],
+      "erase": "light"
+    },
+    {
+      "text": "IDENTITY CARD",
+      "box": [
+        783,
+        14,
+        1043,
+        36
+      ],
+      "font": "serif",
+      "color": [
+        20,
+        12,
+        2
+      ],
+      "erase": "dark"
+    },
+    {
+      "text": "NAME:",
+      "box": [
+        369,
+        265,
+        486,
+        294
+      ],
+      "font": "sans",
+      "color": [
+        58,
+        14,
+        16
+      ],
+      "erase": "dark"
+    },
+    {
+      "text": "ROLL NO:",
+      "box": [
+        370,
+        334,
+        543,
+        363
+      ],
+      "font": "sans",
+      "color": [
+        58,
+        14,
+        16
+      ],
+      "erase": "dark"
+    },
+    {
+      "text": "PROGRAM:",
+      "box": [
+        370,
+        402,
+        571,
+        432
+      ],
+      "font": "sans",
+      "color": [
+        58,
+        14,
+        16
+      ],
+      "erase": "dark"
+    },
+    {
+      "text": "VALID TILL:",
+      "box": [
+        368,
+        470,
+        575,
+        499
+      ],
+      "font": "sans",
+      "color": [
+        58,
+        14,
+        16
+      ],
+      "erase": "dark"
+    },
+    {
+      "text": "LAB NAME:",
+      "box": [
+        370,
+        538,
+        575,
+        567
+      ],
+      "font": "sans",
+      "color": [
+        58,
+        14,
+        16
+      ],
+      "erase": "dark",
+      "erase_box": [
+        370,
+        538,
+        588,
+        567
+      ]
+    },
+    {
+      "text": "SIGNATURE",
+      "box": [
+        86,
+        693,
+        266,
+        717
+      ],
+      "font": "sans",
+      "color": [
+        62,
+        38,
+        50
+      ],
+      "erase": "dark"
+    },
+    {
+      "text": "CVPR LAB",
+      "box": [
+        463.8,
+        734,
+        591.2,
+        753
+      ],
+      "font": "sans",
+      "color": [
+        230,
+        105,
+        110
+      ],
+      "erase": "dark",
+      "erase_box": [
+        390,
+        734,
+        665,
+        753
+      ],
+      "erase_mode": "rows"
+    }
+  ],
+  "photo_box": [
+    36,
+    237,
+    310,
+    565
+  ],
+  "photo_frame": {
+    "outer": [
+      24,
+      225,
+      322,
+      577
+    ],
+    "erase_box": [
+      15,
+      213,
+      331,
+      588
+    ]
+  },
+  "ghost_box": [
+    864,
+    311,
+    1017,
+    486
+  ],
+  "ghost_clean_box": [
+    852,
+    298,
+    1030,
+    498
+  ],
+  "ghost_opacity": 0.38,
+  "ghost_tint": [
+    120,
+    70,
+    75
+  ],
+  "signature_frame": {
+    "box": [
+      32,
+      585,
+      321,
+      679
+    ],
+    "outer": [
+      158,
+      129,
+      108
+    ],
+    "band": [
+      226,
+      186,
+      176
+    ],
+    "inner": [
+      120,
+      56,
+      61
+    ],
+    "radius": 5,
+    "fill_white_alpha": 0.55
+  },
+  "signature_box": [
+    44,
+    596,
+    309,
+    667
+  ],
+  "signature_line": {
+    "y": 677,
+    "x0": 33,
+    "x1": 319
+  },
+  "barcode_white_box": [
+    643,
+    620,
+    1057,
+    715
+  ],
+  "barcode_bars_box": [
+    663,
+    624,
+    1041,
+    686
+  ],
+  "barcode_text_center": [
+    850,
+    702
+  ],
+  "barcode_text_size": 22,
+  "logo": {
+    "center": [
+      81.48,
+      107.5
+    ],
+    "ring_radius": 64.34,
+    "disc_radius": 70.5,
+    "file": "logo_hd.png",
+    "src_center": [
+      822.48,
+      822.93
+    ],
+    "src_ring_radius": 767.2
+  },
+  "text_color": [
+    58,
+    14,
+    16
+  ],
+  "value_cap_height": 32,
+  "value_gap_after_label": 15,
+  "fields": {
+    "name": {
+      "label_box": [
+        369,
+        265,
+        486,
+        294
+      ],
+      "baseline": 293,
+      "max_x": 1040
+    },
+    "roll_no": {
+      "label_box": [
+        370,
+        334,
+        543,
+        363
+      ],
+      "baseline": 362,
+      "max_x": 852
+    },
+    "program": {
+      "label_box": [
+        370,
+        402,
+        571,
+        432
+      ],
+      "baseline": 431,
+      "max_x": 852
+    },
+    "valid_till": {
+      "label_box": [
+        368,
+        470,
+        575,
+        499
+      ],
+      "baseline": 498,
+      "max_x": 852
+    },
+    "id_number": {
+      "label_box": [
+        370,
+        538,
+        575,
+        567
+      ],
+      "baseline": 566,
+      "max_x": 1040,
+      "fixed_value": "CVPR LAB"
+    }
+  }
+}
