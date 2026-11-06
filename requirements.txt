@@ -1,5 +1,0 @@
-gradio>=5
-pillow
-numpy
-opencv-contrib-python-headless
-python-barcode
